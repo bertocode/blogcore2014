@@ -1,0 +1,69 @@
+
+
+<script>
+   function confirmPassword() {
+      var pw1 = document.getElementById('user_password').value;    
+      var pw2 = document.getElementById('user_confirm_password').value;  
+
+     <% if ( ! user.id) { %>
+        if (!pw1 || !pw2) {
+           alert('Debe rellenar los campos de Password y Confirmación.');
+           return false;         
+        } 
+     <% } %>
+
+      if (pw1 === pw2) {
+         return true;
+      } else {
+         alert('Los passwords introducidos no coinciden.');
+         return false;         
+      } 
+   }
+</script>
+
+
+
+  <div class='<%- validate_errors.login ? "invalid_field" : "field" %>'>
+
+     <% if ( ! user.id) { %>
+        <label for="user_login">Login:</label><br />
+        <input type="text" id="user_login" name="user[login]" size="30" 
+               value='<%= user.login %>' />
+     <% } else { %>
+        Login: <%= user.login %>
+     <% } %>
+  </div>
+
+
+  <div class='<%- validate_errors.name ? "invalid_field" : "field" %>'>
+
+    <label for="user_name">Nombre</label><br />
+    <input type="text" id="user_name" name="user[name]" size="30" 
+           value='<%= user.name %>' />
+  </div>
+
+
+  <div class='<%- validate_errors.email ? "invalid_field" : "field" %>'>
+
+    <label for="user_email">Email</label><br />
+    <input type="text" id="user_email" name="user[email]" size="30" 
+           value='<%= user.email %>' />
+  </div>
+
+
+  <div class="field">
+    <label for="user_password">Password:</label><br />
+    <input type="password" id="user_password" name="user[password]" size="30" value='' />
+  </div>
+
+  <div class="field">
+    <label for="user_confirm_password">Confirmar Password:</label><br />
+    <input type="password" id="user_confirm_password" size="30" value='' />
+  </div>
+
+
+  <div class="actions">
+    <input name="commit" type="submit" value="Salvar"
+           onclick='return confirmPassword()'
+    />
+  </div>

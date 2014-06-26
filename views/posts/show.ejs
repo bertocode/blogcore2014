@@ -1,0 +1,40 @@
+<h2>Post</h2>
+
+<article>
+    <p>
+     <%- include ../favourites/_stars.ejs %> 
+      <b><%= post.title %></b>
+      <br />
+      by 
+      <em><%= post.author && post.author.name || 'Sin autor' %></em>
+    </p>
+
+    <p>
+      <%= post.updatedAt.toLocaleDateString() %>
+    </p>
+
+    <p><%- escapeText(post.body) %></p>
+
+
+    <% if (session.user && session.user.id == post.AuthorId) {%>
+
+       <a href="/posts/<%= post.id %>/edit"> Editar </a>
+
+    <% } %>
+</article>
+
+<hr />
+<%- include ../attachments/index.ejs %>
+<hr />
+<%- include ../comments/index.ejs %>
+<hr />
+
+<% if (session.user) { %>
+   <blockquote>
+      <%- include ../comments/new.ejs %> 
+   </blockquote>
+   
+<% } %>
+
+<a href="/posts"> Volver al índice de Posts </a>
+

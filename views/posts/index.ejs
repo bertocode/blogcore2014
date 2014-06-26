@@ -1,0 +1,46 @@
+<header>
+  <h2> Posts </h2>
+</header>
+
+<% for (var i in posts) { %>
+
+ <% var post = posts[i]; %>
+
+ <article>
+     <header>
+        <%- include ../favourites/_stars.ejs %>
+	<h3> 
+          <a href='/posts/<%= posts[i].id %>'> <%= posts[i].title %> </a>
+        </h3>
+        <em> <%= posts[i].author && posts[i].author.name || "Sin autor" %> </em>
+
+     </header>
+     
+     <p>
+        <%= posts[i].body.slice(0,300) %> ... 
+     </p>
+
+     <footer>
+
+      <% if (session.user && session.user.id == posts[i].AuthorId) {%>
+
+        <% var formname = 'fpi' + i; %>
+        <form method='post' action='/posts/<%= posts[i].id %>' id='<%= formname %>'>
+          <input type='hidden' name='_method' value='delete'>
+          <a href="/posts/<%= posts[i].id %>/edit"> Editar </a> 
+          <a href="" 
+             onclick="confirmarSubmit('¿Seguro que desea borrar el post?', 
+                                      '<%= formname %>'); return false"> Borrar </a>  
+        </form>
+
+      <% } %>
+
+     </footer>
+  </article>
+
+<%  }; %>
+<footer>
+  <nav>
+    <a href="/posts/new"> Crear nuevo Post </a>
+  </nav>
+</footer>

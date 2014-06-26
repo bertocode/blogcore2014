@@ -1,0 +1,16 @@
+<% if (session.user && session.user.id) { %>
+
+	<form class="stars" method='post' action='/users/<%= session.user.id %>/favourites/<%= post.id %>'>
+
+		<input type='hidden' name='_method' value='put'>
+		<input type='hidden' name='redir' value="<&= url || post.redir || '' %>">
+
+		<input type="image" src="/images/chicken.gif" onclick="this.form._method.value='delete'"/>
+
+			<% for (var nStars=1; nStars < 6; nStars++){ %>
+				<input type="image" value="<%= nStars %>" name="best" src="/images/star_<%= post.best >= nStars ? 'yelllow' : 'white' %>.png"> 
+
+			<% } %>
+		</form>
+	
+<% } %>

@@ -1,0 +1,37 @@
+<h2> Adjuntos: <%= attachments.length %> </h2>
+
+<ul>
+   <% for (var i in attachments) { %>
+      <li>
+          <a href='<%= attachments[i].url %>' 
+             type='<%= attachments[i].mime %>' 
+             target='_blank'>
+               <%= attachments[i].filename %> 
+          </a>
+          (<em> <%= attachments[i].updatedAt.toLocaleDateString() %> </em>) 
+
+          <% if (session.user && session.user.id == post.AuthorId) {%>
+
+            <% var formname = 'fai' + i; %>
+            <form style='display:inline;'
+                  method='post' 
+                  action='/posts/<%= post.id %>/attachments/<%= attachments[i].id %>' 
+                  id='<%= formname %>'>
+              <input type='hidden' name='_method' value='delete'>
+              <a href="" 
+                 onclick="confirmarSubmit('¿Seguro que desea borrar la imagen?', 
+                                          '<%= formname %>'); return false"> Borrar </a>  
+            </form>
+
+          <% } %>
+          
+          <br />
+          <img src='<%= attachments[i].url%>' style='max-width:50%;' />
+      </li>
+   <% }; %>
+</ul>
+
+
+<% if (session.user && session.user.id == post.AuthorId) {%>
+   <a href="/posts/<%= post.id %>/attachments/new"> Crear nuevo Adjunto </a>
+<% } %>

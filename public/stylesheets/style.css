@@ -1,0 +1,112 @@
+body {
+  background-image: url("/images/bg.jpg");
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+section {
+  border-style: solid;
+  border-width: 1px 0px 1px 0px;
+}
+
+article {
+  border: 2px solid #ffffff;
+  padding: 7px;
+  margin: 20px;
+  background-color: #e5f5ff;
+}
+
+#flashinfo {
+  width: 450px;
+  border: 2px solid blue;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#flashinfo h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #00c;
+    color: #fff; 
+}
+
+#flashinfo ul li {
+    font-size: 12px;
+    list-style: square; 
+}
+
+
+#flashsuccess {
+  width: 450px;
+  border: 2px solid green;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#flashsuccess h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #0c0;
+    color: #fff; 
+}
+
+#flashsuccess ul li {
+    font-size: 12px;
+    list-style: square; 
+}
+
+#flasherror {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#flasherror h3 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; 
+}
+
+#flasherror ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+.invalid_field {
+  padding: 2px;
+  background-color: red;
+  display: table; 
+}
+
+.field {
+  width: 100%;
+}
+
+#logininfo {
+  float: right;
+  clear: both;
+}
+
+a {
+  color: #00B7FF;
+}

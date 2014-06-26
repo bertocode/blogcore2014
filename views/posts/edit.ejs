@@ -1,0 +1,11 @@
+<h2>Editar Post</h2>
+
+<form method='post' action='/posts/<%= post.id %>'>
+
+  <input type='hidden' name='_method' value='put'>
+
+  <%- include _form.ejs %>
+
+</form>
+
+<a href="/posts"> Volver </a>

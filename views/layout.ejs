@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+   <title>CORE</title>
+   <script src="/javascripts/misc.js"></script>
+</head>
+
+<body>
+   <header>
+     <h1> COmputación en REd - CORE</h1>
+     <nav> 
+         <div id='logininfo'>
+           <% if (session.user) { %>
+               <%= session.user.name %>
+               <a href='/logout'> Logout </a> 
+           <% } else { %>
+              <a href='/login?redir=/posts'> Login </a> 
+              <a href='/users/new'> Register </a> 
+           <% } %>
+         </div>
+
+         <a href="/">Home</a>    
+         <a href="/posts">Posts</a>
+         <a href="/posts/search">Búsqueda</a>
+         <% if(session.user){%>
+        <a href="/users/<%= session.user.id%>/favourites">Favoritos</a>
+         <% }%>
+         <a href="/users">Usuarios</a>
+         <a href="/creditos">Créditos</a>
+     </nav>
+   </header>
+  
+   <section>
+        <% if (messages.info) { %>
+           <article id='flashinfo'>
+             <h3>Información de interés:</h3>
+             <ul>
+                <% for (var i in messages.info) { %>
+                  <li> <%= messages.info[i] %> </li>
+                <% } %>
+             </ul>
+           </article>
+        <% } %>
+
+        <% if (messages.success) { %>
+           <article id='flashsuccess'>
+             <h3>Tareas completadas con éxito:</h3>
+             <ul>
+                <% for (var i in messages.success) { %>
+                   <li> <%= messages.success[i] %> </li>
+                <% } %>
+             </ul>
+           </article>
+        <% } %>
+
+        <% if (messages.error) { %>
+           <article id='flasherror'>
+             <h3>Errores encontrados:</h3>
+             <ul>
+                <% for (var i in messages.error) { %>
+                  <li> <%= messages.error[i] %> </li>
+                <% } %>
+             </ul>
+           </article>
+        <% } %>
+   </section>
+
+   <section>
+     <%- body %>
+   </section>
+
+   <footer>
+      CORE 2013-2014 - UPM
+   </footer>
+</body>
+</html>

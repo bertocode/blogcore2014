@@ -1,0 +1,28 @@
+
+
+
+<form id='form1' method='get' action='/posts/search'>
+	<input id='myinput' type="text" name="q" value="">
+	<button id='boton'>Búsqueda</button>
+</form>
+
+	<% for (var i in query){%>
+		<a href='/posts/<%= query[i].id %>'> <%= query[i].title %> </a>
+		  <p>
+        	<%= query[i].body.slice(0,300) %> 
+        	<% if (query[i].body.length>300) { %>
+        	 ... 
+        	<% }; %>
+     	  </p>
+	<% }; %>
+
+	<script>
+	var form1 = document.getElementById("form1");
+	console.log("Me ejecuto");
+	document.getElementById("boton").addEventListener("click", function () {
+		var n= document.getElementById("myinput").value.replace(/\s/g, "%");
+		form1.myinput.value = n;
+  	form1.submit();
+});
+
+</script>

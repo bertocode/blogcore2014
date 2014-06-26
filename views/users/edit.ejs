@@ -1,0 +1,14 @@
+
+<h2>Editar Usuario</h2>
+
+
+<form method='post' action='/users/<%= user.id %>'>
+
+  <input type='hidden' name='_method' value='put'>
+
+  <%- include _form.ejs %>
+
+</form>
+
+
+<a href="/users"> Volver </a>

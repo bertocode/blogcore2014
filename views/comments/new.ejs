@@ -1,0 +1,9 @@
+<h2>Nuevo Comentario</h2>
+
+<form method='post' action='/posts/<%= post.id %>/comments'>
+
+  <%- include _form.ejs %>
+
+</form>
+
+<A href="/posts/<%= post.id %>"> Cancelar </a>

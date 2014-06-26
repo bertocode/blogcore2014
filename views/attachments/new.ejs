@@ -1,0 +1,18 @@
+<h2>Nuevo Adjunto</h2>
+
+<form method='post' action='/posts/<%= post.id %>/attachments'  enctype='multipart/form-data'
+      accept="image/*">
+
+  <div class='field'>
+    <label for="attachment">Seleccione imagen a adjuntar (máximo 500KB):</label><br />
+    <input type="file" id="attachment" name="adjunto" />
+  </div>
+
+  <div class="actions">
+    <input name="commit" type="submit" value="Subir" />
+  </div>
+
+
+</form>
+
+<a href="/posts/<%= post.id %>"> Cancelar </a>

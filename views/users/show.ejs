@@ -1,0 +1,23 @@
+<h2>Usuario</h2>
+
+<p>
+  <b>Login:</b>
+  <%= user.login %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= user.email %>
+</p>
+
+
+<% if (session.user && session.user.id == user.id) {%>
+   <a href="/users/<%= user.id %>/edit"> Editar </a>
+<% } %>
+
+<a href="/users"> Back  </a>
